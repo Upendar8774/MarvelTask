@@ -1,0 +1,34 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+	
+}
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#btnAddDiv").click(function () {
+			var tmpId = 0;
+			$(".childDiv").each(function (e) {
+				debugger
+				var i = parseInt($(this).attr('id').split('_')[1]);
+				tmpId = i;
+			});
+			tmpId = tmpId + 1;
+			var imgid = (tmpId % 2) == 0 ? 1 : 2;
+			$("#mainDiv").append('<div class="childDiv" id="childDiv_' + tmpId + '" style="width:300px;height:300px;float:left;"><img id="img_' + tmpId + '" width="290px" height="290px" src="/Images/Img' + imgid + '.jpg" onclick="imgLoad(' + imgid + ')"  /></div>');
+
+		});
+
+	});
+
+</script>
+<div class="divBtn" style="width:900px;">
+	<input type="button" value="Add New" id="btnAddDiv" />
+</div>
+<div id="mainDiv">
+
+</div>
+<div id="popupDiv" >
+	
+</div>
+
+
+
